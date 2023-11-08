@@ -2,13 +2,16 @@ from flask import Flask, Response, jsonify, request
 from pymongo import MongoClient
 from bson import ObjectId, json_util, errors
 from werkzeug.exceptions import BadRequest
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 app = Flask(__name__)
 
 test_client = app.test_client()
 
-client = MongoClient("mongo", 27017, username='root', password='example')
+client = MongoClient("mongo", 27017, username=os.getenv('DB_USER'), password=os.getenv('DB_PASSWORD'))
 db = client.virtualmem_database
 collection = db.virtualmem
 
@@ -23,7 +26,7 @@ def get_list():
 def create_company():
 
     if request.content_type != 'application/json':
-        raise BadRequest('Content-Type не поддерживается.')
+        raise BadRequest('Content-Type is not supported.')
 
     param = request.json
     if param is None:
@@ -32,7 +35,7 @@ def create_company():
     try:
         new_item = collection.insert_one(param)
     except Exception as e:
-        return jsonify(message='Не удалось создать компанию.'), 500
+        return jsonify(message='Failed to create a record.'), 500
     
     res = collection.find_one({'_id': new_item.inserted_id})
     
@@ -66,6 +69,3 @@ def update_company(item_id):
 
     return Response(json_util.dumps(updated_item), mimetype='application/json'), 200
 
-
-if __name__ == '__main__':
-    app.run()

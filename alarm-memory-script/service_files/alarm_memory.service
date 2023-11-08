@@ -8,7 +8,7 @@ After=network.target
 Type=simple
 User=andrew
 WorkingDirectory=/home/andrew/projects/simple-crud/script/
-ExecStart=/home/andrew/projects/simple-crud/script/venv/bin/python3 /home/andrew/projects/simple-crud/script/main.py
+ExecStart=/home/andrew/projects/simple-crud/script/venv/bin/python3 /home/andrew/projects/simple-crud/alarm-memory-script/main.py
 Restart=on-failure
 
 [Install]
