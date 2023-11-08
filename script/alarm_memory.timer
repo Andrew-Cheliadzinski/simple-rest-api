@@ -1,0 +1,15 @@
+[Unit]
+Description=Run Alarm Memory Script every minute
+
+[Timer]
+# Run every minute
+OnCalendar=*:*
+
+# Run 1 minute after boot
+OnBootSec=1min
+
+# Ensure timer is activated even if missed due to system being down
+Persistent=true
+
+[Install]
+WantedBy=timers.target
