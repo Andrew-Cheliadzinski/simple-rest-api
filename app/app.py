@@ -9,17 +9,17 @@ app = Flask(__name__)
 test_client = app.test_client()
 
 client = MongoClient("mongo", 27017, username='root', password='example')
-db = client.companies_database
-collection = db.companies
+db = client.virtualmem_database
+collection = db.virtualmem
 
 
-@app.route('/companies', methods=['GET'])
+@app.route('/memory', methods=['GET'])
 def get_list():
     all_companies = collection.find()
     return Response(json_util.dumps(all_companies), mimetype='application/json'), 200
 
 
-@app.route('/companies', methods=['POST'])
+@app.route('/memory', methods=['POST'])
 def create_company():
 
     if request.content_type != 'application/json':
@@ -30,19 +30,17 @@ def create_company():
         return jsonify(message='No data in request.'), 400
     
     try:
-        new_company = collection.insert_one(param)
+        new_item = collection.insert_one(param)
     except Exception as e:
-        # app.logger.error(f'Ошибка при вставки компании {e}')
         return jsonify(message='Не удалось создать компанию.'), 500
     
-    res = collection.find_one({'_id': new_company.inserted_id})
-
+    res = collection.find_one({'_id': new_item.inserted_id})
     
     return Response(json_util.dumps(res), mimetype='application/json'), 201
 
 
-@app.route('/companies/<company_id>', methods=['PUT'])
-def update_company(company_id):
+@app.route('/memory/<item_id>', methods=['PUT'])
+def update_company(item_id):
     if request.content_type != 'application/json':
         return jsonify(message='Bad request'), 400
     
@@ -51,9 +49,9 @@ def update_company(company_id):
         return jsonify(message='Invalid data.')
     
     try:
-        oid = ObjectId(company_id)
+        oid = ObjectId(item_id)
     except errors.InvalidId:
-        return jsonify({'error': 'Invalid company id'}), 400
+        return jsonify({'error': 'Invalid item id'}), 400
 
     
     update_result = collection.update_one(
@@ -62,11 +60,11 @@ def update_company(company_id):
     )
 
     if update_result.matched_count == 0:
-        return jsonify({'error': 'Company not found.'}), 404 
+        return jsonify({'error': 'Item not found.'}), 404 
 
-    updated_company = collection.find_one({'_id': oid})
+    updated_item = collection.find_one({'_id': oid})
 
-    return Response(json_util.dumps(updated_company), mimetype='application/json'), 200
+    return Response(json_util.dumps(updated_item), mimetype='application/json'), 200
 
 
 if __name__ == '__main__':
