@@ -1,14 +1,15 @@
-import psutil
 import os
-from datetime import datetime
 import logging
-
+import psutil
+from datetime import datetime
 import requests
 from requests.exceptions import HTTPError, Timeout, ConnectionError
 
 
-
 LOG_PATH = os.path.join(os.getcwd(), 'logfile.log')
+API_ENDPOINT = 'http://localhost:8080/memory'
+MEMORY_THRESHOLD = 40
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -18,23 +19,21 @@ logging.basicConfig(
 )
 
 
-API_ENDPOINT = 'http://localhost:5000/companies'
-VARIABLE_CONTROL = 40
-
 def check_memory_usage():
-    perc_virtual_mem = psutil.virtual_memory().percent 
-    if perc_virtual_mem > VARIABLE_CONTROL:
-        send_alarm(perc_virtual_mem)
+    memory_usage = psutil.virtual_memory().percent 
+    if memory_usage > MEMORY_THRESHOLD:
+        send_alarm(memory_usage)
 
 
 def send_alarm(usage):
-    current_time = datetime.now().isoformat()
+    
     payload = {
         "data": f"Virtual memory equal {usage}",
-        "event_time": current_time
+        "event_time": datetime.now().isoformat()
     }
     try:
-        requests.post(url=API_ENDPOINT, json=payload)
+        response = requests.post(url=API_ENDPOINT, json=payload)
+        response.raise_for_status()
     except HTTPError as http_err:
         logging.error(f"HTTP error occurred: {http_err}")
     except Timeout as timeout_err:

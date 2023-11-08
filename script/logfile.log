@@ -1,1 +1,27 @@
 2023-11-08 12:45:41,988:INFO:Successful POST request.
+2023-11-08 14:00:53,720:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:01:21,506:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:02:31,520:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:03:39,796:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:04:23,571:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:05:39,790:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:06:01,561:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:07:11,500:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:08:08,409:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1614d7fdd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:09:31,529:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fa25bae0790>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:10:23,598:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f111579fe90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:11:07,090:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3ba6d17f50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:12:29,791:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fe4c63b3cd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:13:01,519:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7939f14650>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:14:11,512:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:15:11,631:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7faf9a148510>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:16:19,070:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /virtual-memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f942b57fdd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:17:15,252:ERROR:HTTP error occurred: 404 Client Error: NOT FOUND for url: http://localhost:5000/virtual-memory
+2023-11-08 14:20:01,548:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7efc070e06d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:21:11,566:ERROR:Connection error occurred: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /memory (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f5190bbbe10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2023-11-08 14:21:54,510:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2023-11-08 14:22:21,512:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2023-11-08 14:23:03,782:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2023-11-08 14:24:41,509:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2023-11-08 14:25:23,719:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2023-11-08 14:26:13,806:ERROR:Connection error occurred: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
