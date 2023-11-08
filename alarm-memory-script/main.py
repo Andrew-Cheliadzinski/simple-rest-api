@@ -33,6 +33,7 @@ def send_alarm(usage):
     }
     try:
         response = requests.post(url=API_ENDPOINT, json=payload)
+        print(response.json())
         response.raise_for_status()
     except HTTPError as http_err:
         logging.error(f"HTTP error occurred: {http_err}")
